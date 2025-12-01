@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Notium Manager</title>
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    height: 100vh;
+    display: flex;
+    background: #1e1e2f;
+    color: #c5c5c5;
+    overflow: hidden;
+}
+
+/* Левая колонка — список заметок */
+#sidebar {
+    width: 250px;
+    background: #2a2a40;
+    border-right: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar h3 {
+    text-align: center;
+    padding: 12px 0;
+    margin: 0;
+    font-size: 16px;
+    border-bottom: 1px solid #444;
+}
+
+#notesList {
+    flex: 1;
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#notesList li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #3a3a5a;
+    transition: background 0.2s;
+}
+
+#notesList li:hover {
+    background: #444466;
+}
+
+#notesList li.selected {
+    background: #5a5aff;
+    color: #fff;
+}
+
+/* Кнопки в колонке */
+#sidebar button {
+    margin: 5px 10px;
+    padding: 8px 0;
+    background: #3a3a5a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #c5c5c5;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+}
+
+#sidebar button:hover {
+    background: #5a5aff;
+    color: #fff;
+}
+
+/* Правая колонка — редактор */
+#editorContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#editorHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px;
+    background: #2a2a40;
+    border-bottom: 1px solid #444;
+}
+
+#editorHeader span {
+    font-weight: bold;
+}
+
+#editorHeader div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#editorHeader button {
+    background: #3a3a5a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #c5c5c5;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s, color 0.2s;
+}
+
+#editorHeader button:hover {
+    background: #ff5a5a;
+    color: #fff;
+}
+
+#editorHeader input[type="checkbox"] {
+    cursor: pointer;
+}
+
+#editor {
+    flex: 1;
+    width: 100%;
+    padding: 12px;
+    background: #1e1e2f;
+    color: #c5c5c5;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    resize: none;
+}
+</style>
+</head>
+<body>
+
+<div id="sidebar">
+    <h3>Notes</h3>
+    <ul id="notesList"></ul>
+    <button id="newNoteBtn">New Note</button>
+</div>
+
+<div id="editorContainer">
+    <div id="editorHeader">
+        <span id="currentNoteTitle">Select a note</span>
+        <div>
+            <label>
+                Auto-open (Temporarily not working)
+                <input type="checkbox" id="autoOpenToggle">
+            </label>
+            <button id="deleteNoteBtn">Delete</button>
+        </div>
+    </div>
+    <textarea id="editor" placeholder="Select a note on the left..."></textarea>
+</div>
+
+<script src="notes_manager.js"></script>
+</body>
+</html>

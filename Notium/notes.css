@@ -1,0 +1,58 @@
+/* Контейнер заметки */
+#quick-note {
+    position: fixed;
+    width: 240px;
+    height: 200px;
+    min-width: 180px;
+    min-height: 100px;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: #fff8b3; /* цвет по умолчанию, может меняться через popup */
+    border: 1px solid #e1d78a;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 999999;
+    resize: both; /* размер контейнера */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    color: #000; /* текст всегда чёрный */
+}
+
+/* Хедер заметки (drag & drop) */
+#quick-note-header {
+    background: #e1d78a;
+    padding: 2px 5px;
+    cursor: move;
+    display: flex;
+    justify-content: flex-end;
+    user-select: none;
+    color: #000;
+}
+
+/* Крестик закрытия */
+#quick-note-close {
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Текстовое поле заметки */
+#quick-note-text {
+    flex: 1;
+    width: 100%;
+    border: none;
+    background: transparent; /* прозрачный, чтобы наследовать фон контейнера */
+    color: #000;              /* текст всегда чёрный */
+    resize: none; /* размер через контейнер */
+    outline: none;
+    font-size: 14px;
+    line-height: 1.3;
+    padding: 5px;
+    overflow-y: auto; /* скролл при переполнении текста */
+}
+
+/* Hover эффект для крестика закрытия */
+#quick-note-close:hover {
+    color: red;
+}
